@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Itim } from "next/font/google";
 import "@/presentation/styles/globals.css";
 import JotaiProvider from "@/providers/JotaiProvider";
+import AuthProvider from "@/providers/AuthProvider";
+import { CloudSyncManager } from "@/presentation/components/shared/CloudSyncManager";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const font = Itim({ weight: "400", subsets: ["latin"] });
@@ -46,7 +48,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <JotaiProvider>{children}</JotaiProvider>
+        <AuthProvider>
+          <JotaiProvider>
+            <CloudSyncManager />
+            {children}
+          </JotaiProvider>
+        </AuthProvider>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
       </body>
     </html>

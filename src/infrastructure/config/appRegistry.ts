@@ -11,6 +11,7 @@ import { ChangelogWindow } from "@/presentation/components/shared/taskbar/Change
 import Bookmark from "@/app/(bookmark)/Bookmark";
 import { SettingsPanel } from "@/app/(settings)/SettingsPanel";
 import SessionLogApp from "@/app/(session-log)/SessionLogApp";
+import { AccountSettings } from "@/app/(settings)/(account)/account";
 
 interface AppRegistryEntry {
   name: string; // The display name of the app
@@ -43,6 +44,12 @@ export const settingsRegistry: SettingsEntry[] = [
     name: "Sound",
     component: SoundChanger,
     icon: "/icons/volume.png",
+  },
+  {
+    id: "account",
+    name: "Account",
+    component: AccountSettings,
+    icon: "/icons/user.png", // Ensure this icon exists or use a default
   },
 ];
 
