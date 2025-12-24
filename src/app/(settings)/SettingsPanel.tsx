@@ -35,7 +35,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         onValueChange={handleTabChange}
         className="w-full"
       >
-        <TabsList className=" grid grid-cols-2 gap-2">
+        <TabsList className=" grid grid-cols-3 gap-2">
           {settingsRegistry.map((setting) => (
             <TabsTrigger
               key={setting.id}
